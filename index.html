@@ -5,9 +5,26 @@
 	<title>Todo list</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
-	
+<body> <!-- Body -->
+
+	<div id="todo_app"> <!-- Todo app -->
+
+		<h3 class="todo__title">{{todo_title}}</h3>
+		<form @submit.prevent="addTodo">
+			<label for="newTodo"></label>
+			<input v-model="newTodo" type="text" name="newTodo" id="newTodo">
+			<button type="submit" name="button">Add new task</button>
+		</form>
+	</div>	<!-- /Todo app -->
+
+
+
+
+
+
+
 	<script src="vue.js"></script>
-	<script src="app.js"></script>
-</body>
+	<script src="todo_app.js"></script>
+
+</body> <!-- /Body -->
 </html>
