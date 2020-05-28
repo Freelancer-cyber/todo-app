@@ -1,0 +1,155 @@
+*{
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+button,input{
+  background: none;
+  outline: none;
+  border:none;
+  border: none;
+  cursor: pointer;
+}
+body{
+  font-family:  "Monospace",sans-serif;
+  background-color: #6FC298;
+  color: #CCD5FF;
+}
+.todo__title {
+  text-align: center;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+          /*---- Todo menu ----*/
+.todo__menu{
+  padding: 20px 0;
+}
+.menu__btn{
+  color: #fff!important;
+  padding: 15px 5px;
+  border-radius: 5px;
+}
+          /*---- Task group ----*/
+
+/* Group */
+.group__wrapper{
+  display: flex;
+}
+.task__group{
+  min-width: 180px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 25%;
+  color: #4BBF58;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 20px;
+}
+.group__title{
+  color: #f7a3a3;
+  padding-top: 10px;
+}
+/* button and input of taks */
+.newTodo{
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  -webkit-appearance: none;
+    appearance: none;
+}
+/* button for add new task */
+.newTodo__btn{
+  color: #4BBF58;
+  border:none;
+}
+.newTodo__btn:hover{
+  background-color:#ccc;
+  opacity: .7;
+
+}
+  /*-- Task --*/
+.task{
+  position: relative;
+  padding: 5px;
+  margin: 10px 0;
+  text-align: center;
+}
+/* task title */
+.task__title{
+  font-size: 20px;
+  color: #EA1F1D;
+}
+/* task description */
+.newTodo_desc{
+  width: 100%;
+  min-height: 100px;
+  outline: none;
+  border: none;
+  resize: none;
+  padding: 10px;
+
+}
+/* Task checkbox */
+.task__ckeck{
+  position: absolute;
+  top: 50%;
+  left: 9px;
+  transform: translateY(-50%);
+  appearance:none;
+  -webkit-appearance:none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 0;
+
+}
+.task__ckeck:checked + .task__checked{
+   display: block;
+}
+.task__checked{
+  display: none;
+  position: absolute;
+  left:13px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+/* task button*/
+.task__btn{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  color: #FF5C47;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* class for completed task */
+.completed{
+  text-decoration: line-through;
+  color: #ccc;
+  opacity: .7;
+  color: #EA1F1D;
+  color: #46F2A5!important;
+}
+/*- Footer task -*/
+.footer_btn{
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  cursor: pointer;
+  background-color: #FF5C47;
+  color: #fff;
+}
+.footer_allDone{
+  background-color:#4BBF58;
+}
+.footer_btn:hover{
+  opacity: .6;
+}
