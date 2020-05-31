@@ -1,3 +1,7 @@
+Vue.component('test',{
+
+});
+
 // Aplication Todo
 const app_todo = new Vue({
     //Element
@@ -6,35 +10,33 @@ const app_todo = new Vue({
     // Data
     data: {
       todo_title: 'Todo list',
-      newTodo: '',
       newGroup:'',
-      todoId: 0, // Variabila asta !!!!!!!!!!!!!!!!!
+      groupId:0,
       groupsTodos: [],
+      todoId: 0,
       todos: [],
-
     },
 
     //Methods
     methods: {
       // Function - add new group
       addGroup() {
-        this.todos.splice(0,this.todos.length);
         this.groupsTodos.push({
           title: this.newGroup,
+          newTodo: '',
+          arr: [],
           completed: false,
         });
+        this.newGroup = '';
       },
       // Function - add new task
-      addTodo() {
-        if (this.newTodo.length > 22 ){
-          this.newTodo = '';
-        };
-        this.todos.push({
-          title: this.newTodo,
+      addTodo(group) {
+          this.todos.push({
+          title: group.newTodo,
           completed: false,
+
         });
-        this.todoId++;
-        this.newTodo = '';
+        group.newTodo = '';
       },
 
       // Function - remove a task
@@ -55,7 +57,6 @@ const app_todo = new Vue({
           todo.completed = false
           else todo.completed = true;
         })
-
       },
 
     },

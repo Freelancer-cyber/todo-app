@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Todo list</title>
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -17,34 +18,36 @@
 
 		<!-- Todo menu -->
 		<div class="todo__menu">
-				<button @click="addGroup()" class="menu__btn newTodo__btn">Добавить новую группу карточек &#x271A;</button>
+			<form @submit.prevent="addGroup()">
+				<input type="text" required v-model="newGroup" class="group__btn">
+				<button type="submit" class="menu__btn newTodo__btn">Добавить новую группу карточек &#x271A;</button>
+			</form>
 		</div> <!-- /Todo menu -->
+
 		<div class="group__wrapper">
-			<div class="task__group" v-for="(group, index) of groupsTodos"> <!-- Task group -->
+			<div class="task__group" v-for="(group, index) in groupsTodos" :key="index"> <!-- Task group -->
 
 				<h3 class="group__title">
-					Название группы
+					{{group.title}}
 				</h3>
 
 				<div id="task__card"> <!-- Task card -->
-
-					<form @submit.prevent="addTodo"> <!-- Todo form -->
+					<form @submit.prevent="addTodo(group)"> <!-- Todo form -->
 						<!-- Task name -->
 						<label for="newTodo"></label>
-						<input v-model="newTodo" autocomplete="off" required type="text" placeholder="Название задачи" name="newTodo" class="newTodo newTodo__input">
+						<input v-model="group.newTodo" autocomplete="off" required type="text" placeholder="Название задачи" name="newTodo" class="newTodo newTodo__input">
 						<textarea name="newTodo_desc" placeholder="Описание задачи" class="newTodo_desc"></textarea>
 						<!-- Task submit -->
+						<ul>
+							<li v-for="todo of todos" class="task">
+								<input type="checkbox" v-model="todo.completed" class="task__ckeck">
+								<label  class="task__checked">&#10004;</label>
+								<span :class="{completed: todo.completed, task__title: true}">{{todo.title}}</span>
+								<button @click="removeTodo(todo)" type="button" name="button" class="task__btn"> &times </button>
+							</li>
+						</ul>
 						<button type="submit" name="button" class="newTodo newTodo__btn">&#x271A;</button>
 					</form> <!-- /Todo form -->
-
-					<ul>
-						<li v-for="todo in todos" class="task">
-							<input type="checkbox" v-bind:key="todo.index" name="task__ckeck" v-model="todo.completed" class="task__ckeck">
-							<label for="task__ckeck" class="task__checked">&#10004;</label>
-							<span :class="{completed: todo.completed, task__title: true}">{{todo.title}}</span>
-							<button @click="removeTodo(todo)" type="button" name="button" class="task__btn">&times</button>
-						</li>
-					</ul>
 
 					<div class="card__footer">
 						<button @click="allDone()" type="button" name="button" v-if="todos.length >1" class="footer_btn footer_allDone">Все задачи выполнены</button>

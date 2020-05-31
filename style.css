@@ -33,22 +33,34 @@ body{
   color: #fff!important;
   padding: 15px 5px;
   border-radius: 5px;
+  margin: 10px auto;
+  display: block;
 }
           /*---- Task group ----*/
 
 /* Group */
+.group__btn{
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  opacity: .8;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
 .group__wrapper{
-  display: flex;
+  max-width: 100%;
+  text-align: center;
 }
 .task__group{
   min-width: 180px;
   background-color: #fff;
   border-radius: 5px;
-  width: 25%;
   color: #4BBF58;
   text-align: center;
   overflow: hidden;
-  margin: 0 20px;
+  margin: 20px 20px;
+  display: inline-block;
 }
 .group__title{
   color: #f7a3a3;
